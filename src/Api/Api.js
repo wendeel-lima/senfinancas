@@ -1,6 +1,6 @@
 export const Api = {
-  // baseUrl: "https://my-json-server.typicode.com/wendeel-lima/json-server"
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://my-json-server.typicode.com/wendeel-lima/json-server",
+  // baseUrl: "http://localhost:3000",
 
   readAlloperacoesUrl: () => Api.baseUrl + "/operacoes",
 
