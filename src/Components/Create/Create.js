@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Api } from "../../Api/Api";
+
+import { Box, Botao, Form, FormInput, Select } from "../UI/index.js";
 
 export default function Create(props) {
   const handleSubmit = async (event) => {
@@ -7,7 +9,7 @@ export default function Create(props) {
 
     const tipo = event.target.tipo.value;
     const categoria = event.target.categoria.value;
-    const valor = event.target.valor.value;
+    let valor = event.target.valor.value;
     const data = event.target.data.value;
 
     const payload = {
@@ -21,33 +23,36 @@ export default function Create(props) {
       Api.createoperacoesUrl(),
       payload,
     );
+
     console.log(payload);
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Tipo</label>
-        <div>
-          <input type="text" id="tipo" name="tipo_id" />
-        </div>
+    <Box>
+      <Form onSubmit={handleSubmit}>
         <label>Categoria</label>
         <div>
-          <input type="text" id="categoria" name="categoria" />
+          <FormInput type="text" id="categoria" name="categoria" />
         </div>
+        <label>Tipo</label>
+        <Select name="tipo" id="tipo">
+          <option value="" hidden>
+            Type
+          </option>
+          <option value="Entrada">Entrada</option>
+          <option value="Saida">Saida</option>
+        </Select>
         <label>Valor</label>
         <div>
-          <input type="text" id="valor" name="valor" />
+          <FormInput type="text" id="valor" name="valor" />
         </div>
         <label>Data</label>
         <div>
-          <input type="date" id="data" name="data" />
+          <FormInput type="date" id="data" name="data" />
         </div>
 
-        <div>
-          <input className="form__submit" type="submit" value="Add" />
-        </div>
-      </form>
-    </div>
+        <Botao type="submit">Adicionar</Botao>
+      </Form>
+    </Box>
   );
 }
