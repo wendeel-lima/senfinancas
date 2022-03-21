@@ -1,22 +1,15 @@
 import { GlobalStyle } from "./Components/UI/GlobalStyle.js";
 import Home from "./Pages/Home.js";
+import Cabecalho from "./Components/Cabecalho/Cabecalho.js";
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <Cabecalho />
       <GlobalStyle />
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Home />
-      </header>
-    </div>
+      {/* <Busca /> */}
+      <Home />
+    </>
   );
 }
 
